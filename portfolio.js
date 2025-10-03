@@ -1,14 +1,13 @@
 import React from 'react';
 
 // --- Helper Data ---
-// It's good practice to keep data like this separate for easy updating.
 const portfolioData = {
-  name: "Your Name",
-  title: "Aspiring Software Developer",
-  email: "your.email@example.com",
+  name: "Marwan Arafa",
+  title: "Full-Stack Developer",
+  email: "marwanarafa206@gmail.com",
   socials: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
+    github: "https://github.com/MarwanArafa",
+    linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
   about: "A passionate and driven learner with a foundation in computer science and programming from Harvard's renowned CS50 courses. I am enthusiastic about building efficient, scalable, and user-friendly applications. Currently seeking opportunities to apply my skills and grow as a developer.",
   courses: [
@@ -65,7 +64,6 @@ const portfolioData = {
   ],
 };
 
-
 // --- SVG Icons (Components) ---
 const GithubIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -85,11 +83,7 @@ const MailIcon = ({ className }) => (
     </svg>
 );
 
-
 // --- Main App Components ---
-// Note: In a real app, these would be in separate files.
-// For this single-file setup, we define them all here.
-
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-10 bg-gray-900 bg-opacity-80 backdrop-blur-sm">
@@ -97,12 +91,12 @@ const Header = () => {
         <div className="text-2xl font-bold text-white tracking-wider">
           {portfolioData.name.split(' ')[0]}<span className="text-sky-400">.</span>
         </div>
-        <nav className="hidden md:flex space-x-8">
-          <a href="#about" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">About</a>
-          <a href="#courses" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">Courses</a>
-          <a href="#projects" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">Projects</a>
+        <nav className="hidden md-flex space-x-8">
+          <a href="#about" className="text-gray-300 hover-text-sky-400 transition-colors duration-300">About</a>
+          <a href="#courses" className="text-gray-300 hover-text-sky-400 transition-colors duration-300">Courses</a>
+          <a href="#projects" className="text-gray-300 hover-text-sky-400 transition-colors duration-300">Projects</a>
         </nav>
-        <a href={`mailto:${portfolioData.email}`} className="hidden md:inline-block bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105">
+        <a href={`mailto:${portfolioData.email}`} className="hidden md-inline-block bg-sky-500 hover-bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg transition-transform duration-300 hover-scale-105">
           Contact Me
         </a>
       </div>
@@ -111,9 +105,7 @@ const Header = () => {
 };
 
 const Hero = () => {
-    // This is a placeholder for Framer Motion. In a real setup, you'd import it.
-    // For this example, we'll imagine it works to structure the code.
-    const motion = window.motion; 
+    const motion = window.framerMotion;
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -128,76 +120,63 @@ const Hero = () => {
         visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
     };
 
+    const MotionDiv = motion ? motion.motion.div : 'div';
+    const MotionH1 = motion ? motion.motion.h1 : 'h1';
+    const MotionP = motion ? motion.motion.p : 'p';
+
+    const motionContainerProps = motion ? { variants: containerVariants, initial: "hidden", animate: "visible" } : {};
+    const motionItemProps = motion ? { variants: itemVariants } : {};
+
     return (
         <section className="min-h-screen flex items-center bg-gray-900 text-white pt-20">
             <div className="container mx-auto px-6 text-center">
-                {motion ? (
-                    <motion.div variants={containerVariants} initial="hidden" animate="visible">
-                        <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4">
-                            Hi, I'm <span className="text-sky-400">{portfolioData.name}</span>
-                        </motion.h1>
-                        <motion.p variants={itemVariants} className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                            {portfolioData.title}
-                        </motion.p>
-                        <motion.div variants={itemVariants} className="flex justify-center items-center space-x-6">
-                            <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110">
-                                <GithubIcon className="w-8 h-8" />
-                            </a>
-                            <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-400 transition-transform duration-300 hover:scale-110">
-                                <LinkedinIcon className="w-8 h-8" />
-                            </a>
-                            <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover:text-red-400 transition-transform duration-300 hover:scale-110">
-                                <MailIcon className="w-8 h-8" />
-                            </a>
-                        </motion.div>
-                    </motion.div>
-                ) : (
-                    <div>
-                        {/* Fallback for when motion is not available */}
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4">
-                            Hi, I'm <span className="text-sky-400">{portfolioData.name}</span>
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                            {portfolioData.title}
-                        </p>
-                    </div>
-                )}
+                <MotionDiv {...motionContainerProps}>
+                    <MotionH1 {...motionItemProps} className="text-4xl md-text-6xl lg-text-7xl font-extrabold tracking-tight mb-4">
+                        Hi, I'm <span className="text-sky-400">{portfolioData.name}</span>
+                    </MotionH1>
+                    <MotionP {...motionItemProps} className="text-xl md-text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                        {portfolioData.title}
+                    </MotionP>
+                    <MotionDiv {...motionItemProps} className="flex justify-center items-center space-x-6">
+                        <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover-text-white transition-transform duration-300 hover-scale-110">
+                            <GithubIcon className="w-8 h-8" />
+                        </a>
+                        <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover-text-sky-400 transition-transform duration-300 hover-scale-110">
+                            <LinkedinIcon className="w-8 h-8" />
+                        </a>
+                        <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover-text-red-400 transition-transform duration-300 hover-scale-110">
+                            <MailIcon className="w-8 h-8" />
+                        </a>
+                    </MotionDiv>
+                </MotionDiv>
             </div>
         </section>
     );
 };
 
 const Section = ({ id, title, children }) => {
-    const motion = window.motion;
+    const motion = window.framerMotion;
+    const MotionDiv = motion ? motion.motion.div : 'div';
+    const motionProps = motion ? {
+        initial: { opacity: 0, y: 50 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.3 },
+        transition: { duration: 0.8 }
+    } : {};
     
     return (
-        <section id={id} className="py-20 lg:py-32 bg-gray-900 text-white">
+        <section id={id} className="py-20 lg-py-32 bg-gray-900 text-white">
             <div className="container mx-auto px-6">
-                 {motion ? (
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                            {title} <span className="text-sky-400">.</span>
-                        </h2>
-                        {children}
-                    </motion.div>
-                 ) : (
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                           {title} <span className="text-sky-400">.</span>
-                        </h2>
-                        {children}
-                    </div>
-                 )}
+                 <MotionDiv {...motionProps}>
+                     <h2 className="text-3xl md-text-4xl font-bold text-center mb-12">
+                         {title} <span className="text-sky-400">.</span>
+                     </h2>
+                     {children}
+                 </MotionDiv>
             </div>
         </section>
     );
 };
-
 
 const About = () => (
     <Section id="about" title="About Me">
@@ -209,14 +188,14 @@ const About = () => (
 
 const Courses = () => (
     <Section id="courses" title="My Education">
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md-grid-cols-2 gap-8 max-w-4xl mx-auto">
             {portfolioData.courses.map((course, index) => (
-                <div key={course.id} className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-sky-500 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-sky-500/20">
-                    <div className="flex justify-center md:justify-start">
+                <div key={course.id} className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover-border-sky-500 transition-all duration-300 transform hover-translate-y-1 shadow-lg hover-shadow-sky">
+                    <div className="flex justify-center md-justify-start">
                         {course.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-2 text-center md:text-left">{course.title}</h3>
-                    <p className="text-sky-400 font-semibold mb-4 text-center md:text-left">{course.institution}</p>
+                    <h3 className="text-xl font-bold mb-2 text-center md-text-left">{course.title}</h3>
+                    <p className="text-sky-400 font-semibold mb-4 text-center md-text-left">{course.institution}</p>
                     <p className="text-gray-400 text-sm leading-relaxed">{course.description}</p>
                 </div>
             ))}
@@ -226,9 +205,9 @@ const Courses = () => (
 
 const Projects = () => (
     <Section id="projects" title="Featured Projects">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md-grid-cols-2 lg-grid-cols-3 gap-8 max-w-6xl mx-auto">
             {portfolioData.projects.map(project => (
-                 <a href={project.link} key={project.id} className="block bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-sky-500 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-sky-500/20">
+                 <a href={project.link} key={project.id} className="block bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover-border-sky-500 transition-all duration-300 transform hover-translate-y-1 shadow-lg hover-shadow-sky">
                     <div className="p-6">
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                         <p className="text-gray-400 text-sm mb-4">{project.description}</p>
@@ -244,18 +223,17 @@ const Projects = () => (
     </Section>
 );
 
-
 const Footer = () => (
     <footer className="bg-gray-800 border-t border-gray-700 py-8 text-white">
         <div className="container mx-auto px-6 text-center text-gray-400">
             <div className="flex justify-center items-center space-x-6 mb-4">
-                 <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110">
+                 <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover-text-white transition-transform duration-300 hover-scale-110">
                     <GithubIcon className="w-6 h-6" />
                 </a>
-                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-400 transition-transform duration-300 hover:scale-110">
+                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover-text-sky-400 transition-transform duration-300 hover-scale-110">
                     <LinkedinIcon className="w-6 h-6" />
                 </a>
-                <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover:text-red-400 transition-transform duration-300 hover:scale-110">
+                <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover-text-red-400 transition-transform duration-300 hover-scale-110">
                     <MailIcon className="w-6 h-6" />
                 </a>
             </div>
@@ -263,7 +241,6 @@ const Footer = () => (
         </div>
     </footer>
 );
-
 
 export default function App() {
   return (
@@ -279,4 +256,3 @@ export default function App() {
     </div>
   );
 }
-
