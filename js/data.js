@@ -1,17 +1,30 @@
 // --- Portfolio Data ---
 // All your personal information, projects, and course details are stored here.
-// This makes it easy to update your portfolio without changing the main application logic.
 
 const portfolioData = {
   name: "Marwan Arafa",
-  title: "Full-Stack Developer",
+  title: "Linux System Administrator & Python Developer",
   email: "marwanarafa206@gmail.com",
   socials: {
     github: "https://github.com/MarwanArafa",
     linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
-  about: "A passionate and driven learner with a foundation in computer science and programming from Harvard's renowned CS50 courses. I am enthusiastic about building efficient, scalable, and user-friendly applications. Currently seeking opportunities to apply my skills and grow as a developer.",
+  about: "A results-driven Undergraduate Student and Developer specializing in Linux System Administration and Python Automation. I don't just write code; I build tools that save time and secure servers. My workflow is based in the terminal (Arch Linux), and I am passionate about open-source software, cybersecurity, and backend efficiency.",
   courses: [
+    {
+      id: "linux101",
+      title: "Linux Fundamentals 101",
+      institution: "Flex Courses",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 mb-4 text-yellow-400">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+          <polyline points="4 9 9 9 9 4"></polyline>
+        </svg>
+      ),
+      description: "Mastered core Linux concepts including file system hierarchy, permissions (chmod/chown), process management, and bash scripting. Gained proficiency in terminal-based navigation and system configuration.",
+    },
     {
       id: "cs50x",
       title: "CS50x: Introduction to Computer Science",
@@ -23,11 +36,11 @@ const portfolioData = {
           <path d="m15 5 3 3" />
         </svg>
       ),
-      description: "A comprehensive introduction to the intellectual enterprises of computer science and the art of programming. Covered C, Python, SQL, JavaScript, CSS, and HTML, along with fundamental concepts like algorithms, data structures, and memory management.",
+      description: "A comprehensive introduction to the intellectual enterprises of computer science. Covered C, Python, SQL, and Algorithms, with a focus on memory management and data structures.",
     },
     {
       id: "cs50p",
-      title: "CS50p: Introduction to Programming with Python",
+      title: "CS50p: Programming with Python",
       institution: "Harvard University (edX)",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 mb-4 text-sky-400">
@@ -37,30 +50,30 @@ const portfolioData = {
           <path d="M16.7 6.7 22 12" />
         </svg>
       ),
-      description: "A deep dive into Python, covering its syntax, semantics, and best practices. Explored topics such as functions, variables, data types, conditionals, loops, file I/O, regular expressions, and object-oriented programming.",
+      description: "A deep dive into Python automation and scripting. Explored object-oriented programming, unit testing, file I/O, regular expressions, and library usage for real-world problem solving.",
     },
   ],
   projects: [
-     {
+    {
       id: 1,
-      title: "Web Track: Finance",
-      description: "A web application built with Python (Flask), SQL, HTML, and CSS that allows users to 'buy' and 'sell' stocks using simulated money.",
-      tags: ["Python", "Flask", "SQL", "CS50x"],
-      link: "#",
+      title: "Automated Linux VPS Hardener",
+      description: "A Bash script that automatically secures fresh Ubuntu/Debian servers. It updates the system, configures UFW firewalls to block unauthorized ports, and installs Fail2Ban to prevent brute-force attacks.",
+      tags: ["Bash", "Linux", "Security", "UFW"],
+      link: "https://github.com/MarwanArafa/linux-server-automation",
     },
     {
       id: 2,
-      title: "Python Project: Jar",
-      description: "An object-oriented programming project in Python that simulates a cookie jar, implementing a class to deposit and withdraw cookies.",
-      tags: ["Python", "OOP", "CS50p"],
-      link: "#",
+      title: "High-Volume Image Optimizer",
+      description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
+      tags: ["Python", "Automation", "Pillow", "CLI"],
+      link: "https://github.com/MarwanArafa/python-automation-tools",
     },
     {
       id: 3,
-      title: "Final Project Idea",
-      description: "A placeholder for a future project. The possibilities are endless, perhaps a full-stack application combining skills from both courses.",
-      tags: ["React", "Node.js", "Full-Stack"],
-      link: "#",
+      title: "E-Commerce Web Scraper",
+      description: "A data extraction tool built with BeautifulSoup and Requests. It scrapes product data (prices, ratings, stock) from e-commerce sites and exports clean, analyzed data to CSV format.",
+      tags: ["Python", "Web Scraping", "Data Mining"],
+      link: "https://github.com/MarwanArafa/python-web-scraper",
     },
   ],
 };
