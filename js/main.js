@@ -37,8 +37,9 @@ const Section = ({ id, title, children }) => {
         <section id={id} className="py-20 lg:py-32 bg-gray-900 text-white border-b border-gray-800">
             <div className="container mx-auto px-6">
                  <MotionDiv {...motionProps}>
+                     {/* CLEAN VERSION: No dot span here anymore */}
                      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                         {title} <span className="text-sky-400">.</span>
+                         {title}
                      </h2>
                      {children}
                  </MotionDiv>
@@ -53,8 +54,9 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* CLEAN VERSION: Shows full name, no split, no blue dot */}
         <div className="text-2xl font-bold text-white tracking-wider">
-          {portfolioData.name.split(' ')[0]}<span className="text-sky-400">.</span>
+          {portfolioData.name}
         </div>
         <nav className="hidden md:flex space-x-8">
           <a href="#about" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 font-medium">About</a>
