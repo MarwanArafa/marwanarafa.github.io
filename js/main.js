@@ -1,5 +1,4 @@
-// This file contains all the React components. In a larger project,
-// each component would be in its own file (e.g., components/Header.js).
+// This file contains all the React components.
 
 // --- SVG Icons (Components) ---
 const GithubIcon = ({ className }) => (
@@ -20,20 +19,22 @@ const MailIcon = ({ className }) => (
     </svg>
 );
 
-
 // --- Reusable Section Component ---
 const Section = ({ id, title, children }) => {
+    // Check if Framer Motion is available, otherwise fallback to standard div
     const motion = window.framerMotion;
     const MotionDiv = motion ? motion.motion.div : 'div';
+    
+    // Animation settings
     const motionProps = motion ? {
         initial: { opacity: 0, y: 50 },
         whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, amount: 0.3 },
-        transition: { duration: 0.8 }
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.6 }
     } : {};
     
     return (
-        <section id={id} className="py-20 lg:py-32 bg-gray-900 text-white">
+        <section id={id} className="py-20 lg:py-32 bg-gray-900 text-white border-b border-gray-800">
             <div className="container mx-auto px-6">
                  <MotionDiv {...motionProps}>
                      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -50,17 +51,17 @@ const Section = ({ id, title, children }) => {
 // --- Page Components ---
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-10 bg-gray-900 bg-opacity-80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-white tracking-wider">
           {portfolioData.name.split(' ')[0]}<span className="text-sky-400">.</span>
         </div>
         <nav className="hidden md:flex space-x-8">
-          <a href="#about" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">About</a>
-          <a href="#courses" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">Courses</a>
-          <a href="#projects" className="text-gray-300 hover:text-sky-400 transition-colors duration-300">Projects</a>
+          <a href="#about" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 font-medium">About</a>
+          <a href="#courses" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 font-medium">Education</a>
+          <a href="#projects" className="text-gray-300 hover:text-sky-400 transition-colors duration-300 font-medium">Projects</a>
         </nav>
-        <a href={`mailto:${portfolioData.email}`} className="hidden md:inline-block bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105">
+        <a href={`mailto:${portfolioData.email}`} className="hidden md:inline-block bg-sky-600 hover:bg-sky-500 text-white font-semibold py-2 px-6 rounded-lg transition-transform duration-300 hover:scale-105 shadow-lg shadow-sky-500/20">
           Contact Me
         </a>
       </div>
@@ -76,7 +77,7 @@ const Hero = () => {
     
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
+        visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
     };
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
@@ -87,24 +88,24 @@ const Hero = () => {
     const motionItemProps = motion ? { variants: itemVariants } : {};
 
     return (
-        <section className="min-h-screen flex items-center bg-gray-900 text-white pt-20">
+        <section className="min-h-screen flex items-center justify-center bg-gray-900 text-white pt-20">
             <div className="container mx-auto px-6 text-center">
                 <MotionDiv {...motionContainerProps}>
-                    <MotionH1 {...motionItemProps} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4">
+                    <MotionH1 {...motionItemProps} className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
                         Hi, I'm <span className="text-sky-400">{portfolioData.name}</span>
                     </MotionH1>
-                    <MotionP {...motionItemProps} className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    <MotionP {...motionItemProps} className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-light">
                         {portfolioData.title}
                     </MotionP>
-                    <MotionDiv {...motionItemProps} className="flex justify-center items-center space-x-6">
-                        <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110">
-                            <GithubIcon className="w-8 h-8" />
+                    <MotionDiv {...motionItemProps} className="flex justify-center items-center space-x-8">
+                        <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 transform">
+                            <GithubIcon className="w-10 h-10" />
                         </a>
-                        <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-400 transition-transform duration-300 hover:scale-110">
-                            <LinkedinIcon className="w-8 h-8" />
+                        <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-400 transition-all duration-300 hover:scale-110 transform">
+                            <LinkedinIcon className="w-10 h-10" />
                         </a>
-                        <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover:text-red-400 transition-transform duration-300 hover:scale-110">
-                            <MailIcon className="w-8 h-8" />
+                        <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover:text-red-400 transition-all duration-300 hover:scale-110 transform">
+                            <MailIcon className="w-10 h-10" />
                         </a>
                     </MotionDiv>
                 </MotionDiv>
@@ -115,21 +116,23 @@ const Hero = () => {
 
 const About = () => (
     <Section id="about" title="About Me">
-        <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
-            {portfolioData.about}
-        </p>
+        <div className="bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-300 text-center leading-relaxed">
+                {portfolioData.about}
+            </p>
+        </div>
     </Section>
 );
 
 const Courses = () => (
-    <Section id="courses" title="My Education">
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <Section id="courses" title="Certifications & Education">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {portfolioData.courses.map(course => (
-                <div key={course.id} className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-sky-500 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-sky-500/20">
+                <div key={course.id} className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-sky-500 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-sky-500/10 flex flex-col h-full">
                     <div className="flex justify-center md:justify-start">{course.icon}</div>
-                    <h3 className="text-xl font-bold mb-2 text-center md:text-left">{course.title}</h3>
-                    <p className="text-sky-400 font-semibold mb-4 text-center md:text-left">{course.institution}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">{course.description}</p>
+                    <h3 className="text-xl font-bold mb-2 mt-2">{course.title}</h3>
+                    <p className="text-sky-400 font-semibold mb-4 text-sm uppercase tracking-wide">{course.institution}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed flex-grow">{course.description}</p>
                 </div>
             ))}
         </div>
@@ -140,13 +143,20 @@ const Projects = () => (
     <Section id="projects" title="Featured Projects">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {portfolioData.projects.map(project => (
-                 <a href={project.link} key={project.id} className="block bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-sky-500 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-sky-500/20">
-                    <div className="p-6">
-                        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-                        <div className="flex flex-wrap gap-2">
+                 <a href={project.link} target="_blank" rel="noopener noreferrer" key={project.id} className="group block bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-sky-500 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-sky-500/20 h-full flex flex-col">
+                    <div className="p-8 flex flex-col h-full">
+                        <div className="flex justify-between items-start mb-4">
+                            <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">{project.title}</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-sky-400">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                        <p className="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">{project.description}</p>
+                        <div className="flex flex-wrap gap-2 mt-auto">
                             {project.tags.map(tag => (
-                                <span key={tag} className="text-xs font-semibold bg-gray-700 text-sky-300 px-2 py-1 rounded-full">{tag}</span>
+                                <span key={tag} className="text-xs font-bold bg-gray-900 border border-gray-700 text-sky-300 px-3 py-1 rounded-full">{tag}</span>
                             ))}
                         </div>
                     </div>
@@ -157,14 +167,14 @@ const Projects = () => (
 );
 
 const Footer = () => (
-    <footer className="bg-gray-800 border-t border-gray-700 py-8 text-white">
+    <footer className="bg-gray-800 border-t border-gray-700 py-10 text-white mt-auto">
         <div className="container mx-auto px-6 text-center text-gray-400">
-            <div className="flex justify-center items-center space-x-6 mb-4">
+            <div className="flex justify-center items-center space-x-8 mb-6">
                  <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110"><GithubIcon className="w-6 h-6" /></a>
                 <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-sky-400 transition-transform duration-300 hover:scale-110"><LinkedinIcon className="w-6 h-6" /></a>
                 <a href={`mailto:${portfolioData.email}`} className="text-gray-400 hover:text-red-400 transition-transform duration-300 hover:scale-110"><MailIcon className="w-6 h-6" /></a>
             </div>
-            <p>&copy; {new Date().getFullYear()} {portfolioData.name}. All Rights Reserved.</p>
+            <p className="text-sm opacity-70">&copy; {new Date().getFullYear()} {portfolioData.name}. Built with React & Tailwind.</p>
         </div>
     </footer>
 );
@@ -172,9 +182,9 @@ const Footer = () => (
 // --- Main App Component ---
 function App() {
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 min-h-screen flex flex-col">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Hero />
         <About />
         <Courses />
