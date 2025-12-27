@@ -1,70 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* --- 1. The Moving Background (Cyber Aurora) --- */
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
+  background-color: #111827; /* Dark Gray Base */
   color: #f9fafb;
   margin: 0;
-  /* Deep Tech Gradient: Black -> Deep Blue -> Dark Purple */
-  background: linear-gradient(-45deg, #020617, #0f172a, #1e1b4b, #172554);
-  background-size: 400% 400%;
-  animation: gradientWave 15s ease infinite;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-@keyframes gradientWave {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* --- 2. Override React Defaults for Transparency --- */
-/* This makes the main container transparent so we can see the moving body background */
-#root > div {
+/* --- Glassmorphism Logic --- */
+/* This makes sure the React components don't block the particles */
+#root, section {
   background-color: transparent !important;
 }
 
-section {
-  background-color: transparent !important; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
-
-/* --- 3. Glassmorphism for Cards & Header --- */
-/* This makes the project cards and header look like frosted glass */
-.bg-gray-800, header {
-  background-color: rgba(17, 24, 39, 0.7) !important; /* 70% opacity */
-  backdrop-filter: blur(12px); /* The blur effect */
-  border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Subtle border */
-}
-
-/* Make the header slightly more solid for readability */
 header {
-  background-color: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(10px);
+  background-color: rgba(17, 24, 39, 0.8); /* Semi-transparent header */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Hover effects for cards */
-.bg-gray-800:hover {
-  background-color: rgba(30, 41, 59, 0.8) !important;
-  border-color: rgba(56, 189, 248, 0.5) !important; /* Sky Blue glow on hover */
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-}
-
-/* --- 4. Custom Scrollbar (Arch Linux Style) --- */
+/* Custom Scrollbar (Arch Linux Blue) */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a; 
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #38bdf8; /* Sky Blue */
-  border-radius: 5px;
-  border: 2px solid #0f172a;
+  background: #38bdf8;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9; 
+  background: #0ea5e9;
 }
