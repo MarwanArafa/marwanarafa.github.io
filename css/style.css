@@ -1,24 +1,70 @@
-/* Apply the Inter font family and base background color */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --- 1. The Moving Background (Cyber Aurora) --- */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #111827; /* bg-gray-900 from Tailwind */
-  color: #f9fafb; /* bg-gray-50 from Tailwind */
+  color: #f9fafb;
+  margin: 0;
+  /* Deep Tech Gradient: Black -> Deep Blue -> Dark Purple */
+  background: linear-gradient(-45deg, #020617, #0f172a, #1e1b4b, #172554);
+  background-size: 400% 400%;
+  animation: gradientWave 15s ease infinite;
+  min-height: 100vh;
 }
 
-/* Custom scrollbar for a more modern look */
+@keyframes gradientWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- 2. Override React Defaults for Transparency --- */
+/* This makes the main container transparent so we can see the moving body background */
+#root > div {
+  background-color: transparent !important;
+}
+
+section {
+  background-color: transparent !important; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* --- 3. Glassmorphism for Cards & Header --- */
+/* This makes the project cards and header look like frosted glass */
+.bg-gray-800, header {
+  background-color: rgba(17, 24, 39, 0.7) !important; /* 70% opacity */
+  backdrop-filter: blur(12px); /* The blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Subtle border */
+}
+
+/* Make the header slightly more solid for readability */
+header {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+}
+
+/* Hover effects for cards */
+.bg-gray-800:hover {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important; /* Sky Blue glow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 4. Custom Scrollbar (Arch Linux Style) --- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937; /* bg-gray-800 */
+  background: #0f172a; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #38bdf8; /* bg-sky-400 */
-  border-radius: 10px;
+  background: #38bdf8; /* Sky Blue */
+  border-radius: 5px;
+  border: 2px solid #0f172a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9; /* bg-sky-500 */
+  background: #0ea5e9; 
 }
