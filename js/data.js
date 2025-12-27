@@ -59,14 +59,14 @@ const portfolioData = {
       title: "Advanced Connect 4 AI",
       description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.",
       tags: ["C++", "AI", "Minimax", "Game Dev"],
-      link: "https://github.com/MarwanArafa/connect4-ai",
+      link: "https://github.com/MarwanArafa/Connect-4",
     },
     {
       id: 2,
       title: "Universal Video Downloader",
       description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.",
       tags: ["Python", "Web Scraping", "Automation", "CLI"],
-      link: "https://github.com/MarwanArafa/video-downloader",
+      link: "https://github.com/MarwanArafa/universal-video-sniffer",
     },
     {
       id: 3,
@@ -80,7 +80,7 @@ const portfolioData = {
       title: "High-Volume Image Optimizer",
       description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
       tags: ["Python", "Automation", "Pillow", "CLI"],
-      link: "https://github.com/MarwanArafa/python-automation-tools",
+      link: "https://github.com/MarwanArafa/image_optimizer",
     },
     {
       id: 5,
