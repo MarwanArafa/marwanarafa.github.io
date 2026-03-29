@@ -102,5 +102,14 @@ const portfolioData = {
       link: "https://github.com/MarwanArafa", // Replace with actual repo link when ready
       inProgress: true
     },
+    {
+      id: 7,
+      title: "Custom Web Browser",
+      description: "A lightweight, high-performance web browser built from scratch. Features include 'playable' tab groups and a lag-reducing minimal mode. Currently in the architecture and C++ mastery phase.",
+      tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"],
+      link: "https://github.com/MarwanArafa", 
+      inProgress: true,
+      expectedDate: "Q4 2026" // <-- We will add this to the Proxy project too!
+  }
   ],
 };
