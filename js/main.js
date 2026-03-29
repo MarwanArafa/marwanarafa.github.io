@@ -205,21 +205,35 @@ const Courses = () => (
 const Projects = () => (
     <Section id="projects" title="Featured Projects">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {portfolioData.projects.map(project => (
-                 <a href={project.link} target="_blank" rel="noopener noreferrer" key={project.id} className="group block bg-gray-800/50 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/50 hover:border-sky-500/50 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-sky-500/20 h-full flex flex-col">
+            {/* The array is reversed here so the newest items always appear first */}
+            {[...portfolioData.projects].reverse().map(project => (
+                 <a href={project.link} target="_blank" rel="noopener noreferrer" key={project.id} className="group block bg-gray-800/50 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/50 hover:border-sky-500/50 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-sky-500/20 h-full flex flex-col relative">
+                    {/* Animated Border Top for In-Progress */}
+                    {project.inProgress && (
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 animate-pulse"></div>
+                    )}
+                    
                     <div className="p-8 flex flex-col h-full">
                         <div className="flex justify-between items-start mb-4">
                             <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">{project.title}</h3>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-sky-400">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
+                            {/* SVG Icon or In-Progress Badge */}
+                            {project.inProgress ? (
+                                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 uppercase tracking-wider whitespace-nowrap ml-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></span>
+                                    Building
+                                </span>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-sky-400">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            )}
                         </div>
-                        <p className="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">{project.description}</p>
+                        <p className={`text-sm mb-6 flex-grow leading-relaxed ${project.inProgress ? 'text-gray-300' : 'text-gray-400'}`}>{project.description}</p>
                         <div className="flex flex-wrap gap-2 mt-auto">
                             {project.tags.map(tag => (
-                                <span key={tag} className="text-xs font-bold bg-gray-900/80 border border-gray-700 text-sky-300 px-3 py-1 rounded-full">{tag}</span>
+                                <span key={tag} className={`text-xs font-bold bg-gray-900/80 border px-3 py-1 rounded-full ${project.inProgress ? 'border-yellow-700/50 text-yellow-300' : 'border-gray-700 text-sky-300'}`}>{tag}</span>
                             ))}
                         </div>
                     </div>
