@@ -10,6 +10,8 @@ const portfolioData = {
     linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
   about: "A results-driven Undergraduate Student and Developer specializing in Linux System Administration and Python Automation. I don't just write code; I build tools that save time and secure servers. My workflow is based in the terminal (Arch Linux), and I am passionate about open-source software, cybersecurity, and backend efficiency.",
+  // NEW UI ADDITION: Skills Array
+  skills: ["C / C++", "Python", "Bash Scripting", "Linux Server Admin", "Arch Linux", "Networking (TCP/IP)", "Git", "Automation"],
   courses: [
     {
       id: "linux101",
@@ -100,7 +102,8 @@ const portfolioData = {
       description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).",
       tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
       link: "https://github.com/MarwanArafa", // Replace with actual repo link when ready
-      inProgress: true
+      inProgress: true,
+      expectedDate: "April 2026"
     },
     {
       id: 7,
@@ -109,7 +112,7 @@ const portfolioData = {
       tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"],
       link: "https://github.com/MarwanArafa", 
       inProgress: true,
-      expectedDate: "Q4 2026" // <-- We will add this to the Proxy project too!
-  }
+      expectedDate: "Q4 2026"
+    }
   ],
 };
