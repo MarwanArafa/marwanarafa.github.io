@@ -14,8 +14,14 @@ const MailIcon = ({ className }) => (
         <rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
     </svg>
 );
+// NEW ICON: For expected dates
+const CalendarIcon = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+);
 
-// --- PARTICLE BACKGROUND COMPONENT (The New Engine) ---
+// --- PARTICLE BACKGROUND COMPONENT ---
 const ParticleBackground = () => {
     const canvasRef = React.useRef(null);
 
@@ -24,7 +30,6 @@ const ParticleBackground = () => {
         const ctx = canvas.getContext('2d');
         let animationFrameId;
 
-        // Set Canvas Size
         const handleResize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -32,42 +37,35 @@ const ParticleBackground = () => {
         window.addEventListener('resize', handleResize);
         handleResize();
 
-        // Config
-        const particleCount = 70; // Number of dots
-        const connectionDistance = 150; // How close to connect lines
+        const particleCount = 70;
+        const connectionDistance = 150; 
         const particles = [];
 
-        // Create Particles
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5, // Velocity X
-                vy: (Math.random() - 0.5) * 0.5, // Velocity Y
+                vx: (Math.random() - 0.5) * 0.5, 
+                vy: (Math.random() - 0.5) * 0.5, 
                 size: Math.random() * 2 + 1,
             });
         }
 
-        // Animation Loop
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Update and Draw Particles
             particles.forEach((p, index) => {
                 p.x += p.vx;
                 p.y += p.vy;
 
-                // Bounce off edges
                 if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
                 if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-                // Draw Dot
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(56, 189, 248, 0.5)"; // Sky blue dots
+                ctx.fillStyle = "rgba(56, 189, 248, 0.5)"; 
                 ctx.fill();
 
-                // Draw Lines
                 for (let j = index + 1; j < particles.length; j++) {
                     const p2 = particles[j];
                     const dx = p.x - p2.x;
@@ -76,7 +74,7 @@ const ParticleBackground = () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / connectionDistance})`; // Fade out line
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${1 - distance / connectionDistance})`; 
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -127,7 +125,7 @@ const Section = ({ id, title, children }) => {
 // --- Page Components ---
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-900/50 backdrop-blur-sm border-b border-gray-800/50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-white tracking-wider">
           {portfolioData.name}
@@ -179,10 +177,18 @@ const Hero = () => {
 
 const About = () => (
     <Section id="about" title="About Me">
-        <div className="bg-gray-800/50 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-700/50 max-w-4xl mx-auto">
-            <p className="text-lg text-gray-300 text-center leading-relaxed">
+        <div className="bg-gray-800/50 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)] border border-gray-700/50 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-300 text-center leading-relaxed mb-8">
                 {portfolioData.about}
             </p>
+            {/* NEW UI: Skills Container */}
+            <div className="flex flex-wrap justify-center gap-3 mt-6">
+                {portfolioData.skills && portfolioData.skills.map(skill => (
+                    <span key={skill} className="px-4 py-2 bg-gray-900/60 text-sky-400 rounded-lg border border-gray-700 font-medium text-sm hover:border-sky-500 hover:shadow-[0_0_10px_rgba(56,189,248,0.2)] hover:-translate-y-1 transition-all cursor-default">
+                        {skill}
+                    </span>
+                ))}
+            </div>
         </div>
     </Section>
 );
@@ -205,31 +211,38 @@ const Courses = () => (
 const Projects = () => (
     <Section id="projects" title="Featured Projects">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* The array is reversed here so the newest items always appear first */}
             {[...portfolioData.projects].reverse().map(project => (
                  <a href={project.link} target="_blank" rel="noopener noreferrer" key={project.id} className="group block bg-gray-800/50 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700/50 hover:border-sky-500/50 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-sky-500/20 h-full flex flex-col relative">
-                    {/* Animated Border Top for In-Progress */}
+                    
                     {project.inProgress && (
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 animate-pulse"></div>
                     )}
                     
                     <div className="p-8 flex flex-col h-full">
-                        <div className="flex justify-between items-start mb-4">
-                            <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">{project.title}</h3>
-                            {/* SVG Icon or In-Progress Badge */}
+                        <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors pr-2">{project.title}</h3>
                             {project.inProgress ? (
-                                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 uppercase tracking-wider whitespace-nowrap ml-2">
+                                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 uppercase tracking-wider whitespace-nowrap">
                                     <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></span>
                                     Building
                                 </span>
                             ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-sky-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-sky-400 shrink-0">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
                             )}
                         </div>
+
+                        {/* NEW UI: Expected Date */}
+                        {project.inProgress && project.expectedDate && (
+                            <div className="flex items-center gap-1.5 text-xs text-yellow-500/80 mb-3 font-medium">
+                                <CalendarIcon className="w-3.5 h-3.5" />
+                                Expected: {project.expectedDate}
+                            </div>
+                        )}
+
                         <p className={`text-sm mb-6 flex-grow leading-relaxed ${project.inProgress ? 'text-gray-300' : 'text-gray-400'}`}>{project.description}</p>
                         <div className="flex flex-wrap gap-2 mt-auto">
                             {project.tags.map(tag => (
@@ -259,9 +272,7 @@ const Footer = () => (
 function App() {
   return (
     <div className="min-h-screen flex flex-col relative text-white">
-      {/* THE PARTICLE ENGINE IS HERE */}
       <ParticleBackground />
-      
       <Header />
       <main className="flex-grow">
         <Hero />
