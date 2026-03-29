@@ -60,6 +60,7 @@ const portfolioData = {
       description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.",
       tags: ["C++", "AI", "Minimax", "Game Dev"],
       link: "https://github.com/MarwanArafa/Connect-4",
+      inProgress: false
     },
     {
       id: 2,
@@ -67,6 +68,7 @@ const portfolioData = {
       description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.",
       tags: ["Python", "Web Scraping", "Automation", "CLI"],
       link: "https://github.com/MarwanArafa/universal-video-sniffer",
+      inProgress: false
     },
     {
       id: 3,
@@ -74,6 +76,7 @@ const portfolioData = {
       description: "A Bash script that automatically secures fresh Ubuntu/Debian servers. It updates the system, configures UFW firewalls to block unauthorized ports, and installs Fail2Ban to prevent brute-force attacks.",
       tags: ["Bash", "Linux", "Security", "UFW"],
       link: "https://github.com/MarwanArafa/linux-server-automation",
+      inProgress: false
     },
     {
       id: 4,
@@ -81,6 +84,7 @@ const portfolioData = {
       description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
       tags: ["Python", "Automation", "Pillow", "CLI"],
       link: "https://github.com/MarwanArafa/image_optimizer",
+      inProgress: false
     },
     {
       id: 5,
@@ -88,6 +92,15 @@ const portfolioData = {
       description: "A data extraction tool built with BeautifulSoup and Requests. It scrapes product data (prices, ratings, stock) from e-commerce sites and exports clean, analyzed data to CSV format.",
       tags: ["Python", "Web Scraping", "Data Mining"],
       link: "https://github.com/MarwanArafa/python-web-scraper",
+      inProgress: false
+    },
+    {
+      id: 6,
+      title: "Encrypted SOCKS5 Proxy Server",
+      description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).",
+      tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
+      link: "https://github.com/MarwanArafa", // Replace with actual repo link when ready
+      inProgress: true
     },
   ],
 };
