@@ -9,7 +9,7 @@ const portfolioData = {
     github: "https://github.com/MarwanArafa",
     linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
-  about: "A results-driven Undergraduate Student and Developer specializing in Linux System Administration and Python Automation. I don't just write code; I build tools that save time and secure servers. My workflow is based in the terminal (Arch Linux), and I am passionate about open-source software, cybersecurity, and backend efficiency.",
+  about: "A results-driven Developer specializing in backend efficiency and system automation. I don't just write code; I build tools that save time and secure servers. My daily workflow is entirely terminal-based, and I am deeply passionate about open-source software, networking, and cybersecurity.",
   // NEW UI ADDITION: Skills Array
   skills: ["C / C++", "Python", "Bash Scripting", "Linux Server Admin", "Arch Linux", "Networking (TCP/IP)", "Git", "Automation"],
   courses: [
