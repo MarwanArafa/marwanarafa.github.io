@@ -1,7 +1,7 @@
 /* * GLOBAL DATA STORE
- * We attach the portfolioData to the window object to ensure it is 
- * accessible globally across different script files without using 
- * an import/export module system.
+ * This object holds all the professional data for the portfolio.
+ * It is attached to the window object to ensure availability 
+ * across scripts in a browser-only environment.
  */
 window.portfolioData = {
   name: "Marwan Arafa",
@@ -14,9 +14,6 @@ window.portfolioData = {
 
   about: "A results-driven Undergraduate Computer Science student and Developer specializing in backend efficiency, system automation, and secure networking. I don't just write code; I build tools that save time and harden servers. My daily workflow is entirely terminal-based, powered by a highly customized Arch Linux setup that I maintain myself.\n\nBeyond standard development, I have a deep passion for cybersecurity, specifically web penetration testing and reverse engineering. I am actively working through the PortSwigger Web Security Academy and transitioning my focus from high-level Python scripting down to low-level C and C++ memory management. Whether I'm configuring a secure proxy, hunting for vulnerabilities, or building a browser from scratch, my ultimate goal is to understand exactly how systems work under the hood.",
 
-  /* * CORE TECH STACK
-   * Displayed in the "Terminal" section of the About component.
-   */
   skills: [
     "C / C++", 
     "Python", 
@@ -42,7 +39,7 @@ window.portfolioData = {
           <polyline points="4 9 9 9 9 4"></polyline>
         </svg>
       ),
-      description: "Mastered core Linux concepts including file system hierarchy, permissions (chmod/chown), process management, and bash scripting.",
+      description: "Mastered core Linux concepts including file system hierarchy, permissions (chmod/chown), process management, and bash scripting. Gained proficiency in terminal-based navigation and system configuration.",
     },
     {
       id: "cs50x",
@@ -55,7 +52,7 @@ window.portfolioData = {
           <path d="m15 5 3 3" />
         </svg>
       ),
-      description: "Covered C, Python, SQL, and Algorithms, with a focus on memory management and data structures.",
+      description: "A comprehensive introduction to the intellectual enterprises of computer science. Covered C, Python, SQL, and Algorithms, with a focus on memory management and data structures.",
     },
     {
       id: "cs50p",
@@ -69,7 +66,7 @@ window.portfolioData = {
           <path d="M16.7 6.7 22 12" />
         </svg>
       ),
-      description: "A deep dive into Python automation, scripting, and object-oriented programming.",
+      description: "A deep dive into Python automation and scripting. Explored object-oriented programming, unit testing, file I/O, regular expressions, and library usage for real-world problem solving.",
     },
     {
       id: "cs50w",
@@ -81,7 +78,7 @@ window.portfolioData = {
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
       ),
-      description: "[Currently Pursuing] Building scalable web applications using Django, React, and modern API design.",
+      description: "[Currently Pursuing] Learning to build and deploy scalable, secure web applications using Django, JavaScript, React, and modern API design principles.",
     },
     {
       id: "cs50sql",
@@ -94,7 +91,7 @@ window.portfolioData = {
           <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
         </svg>
       ),
-      description: "[Currently Pursuing] Database architecture and optimization using SQLite and PostgreSQL.",
+      description: "[Currently Pursuing] Deepening my knowledge of database architecture, query optimization, and data management using SQLite, PostgreSQL, and MySQL.",
     }
   ],
 
@@ -102,48 +99,48 @@ window.portfolioData = {
     { 
       id: 1, 
       title: "E-Commerce Web Scraper", 
-      description: "Data extraction tool built with BeautifulSoup.", 
-      tags: ["Python", "Scraping"], 
+      description: "A data extraction tool built with BeautifulSoup and Requests. It scrapes product data (prices, ratings, stock) from e-commerce sites and exports clean, analyzed data to CSV format.", 
+      tags: ["Python", "Web Scraping", "Data Mining"], 
       link: "https://github.com/MarwanArafa/python-web-scraper", 
       inProgress: false 
     },
     { 
       id: 2, 
       title: "High-Volume Image Optimizer", 
-      description: "Python CLI tool for bulk image processing.", 
-      tags: ["Python", "Automation"], 
+      description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.", 
+      tags: ["Python", "Automation", "Pillow", "CLI"], 
       link: "https://github.com/MarwanArafa/image_optimizer", 
       inProgress: false 
     },
     { 
       id: 3, 
       title: "Automated Linux VPS Hardener", 
-      description: "Bash script to secure fresh servers.", 
-      tags: ["Bash", "Linux", "Security"], 
+      description: "A Bash script that automatically secures fresh Ubuntu/Debian servers. It updates the system, configures UFW firewalls to block unauthorized ports, and installs Fail2Ban to prevent brute-force attacks.", 
+      tags: ["Bash", "Linux", "Security", "UFW"], 
       link: "https://github.com/MarwanArafa/linux-server-automation", 
       inProgress: false 
     },
     { 
       id: 4, 
       title: "Universal Video Downloader", 
-      description: "CLI tool to scrape and download media.", 
-      tags: ["Python", "CLI"], 
+      description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.", 
+      tags: ["Python", "Web Scraping", "Automation", "CLI"], 
       link: "https://github.com/MarwanArafa/universal-video-sniffer", 
       inProgress: false 
     },
     { 
       id: 5, 
       title: "Advanced Connect 4 AI", 
-      description: "C++ engine using Minimax with Alpha-Beta Pruning.", 
-      tags: ["C++", "AI"], 
+      description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.", 
+      tags: ["C++", "AI", "Minimax", "Game Dev"], 
       link: "https://github.com/MarwanArafa/Connect-4", 
       inProgress: false 
     },
     { 
       id: 6, 
       title: "Encrypted SOCKS5 Proxy Server", 
-      description: "Custom proxy in C to bypass ISP visibility.", 
-      tags: ["C", "Networking"], 
+      description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).", 
+      tags: ["C", "Socket Programming", "Networking", "SOCKS5"], 
       link: "https://github.com/MarwanArafa", 
       inProgress: true, 
       expectedDate: "April 2026" 
@@ -151,8 +148,8 @@ window.portfolioData = {
     { 
       id: 7, 
       title: "Custom Web Browser", 
-      description: "Lightweight browser with tab groups.", 
-      tags: ["C++", "Qt Framework"], 
+      description: "A lightweight, high-performance web browser built from scratch. Features include 'playable' tab groups and a lag-reducing minimal mode. Currently in the architecture and C++ mastery phase.", 
+      tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"], 
       link: "https://github.com/MarwanArafa", 
       inProgress: true, 
       expectedDate: "Q4 2026" 
