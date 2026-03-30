@@ -1,9 +1,17 @@
-{
-  "courses": {
-    "linux101": {"status": "completed", "description": "Currently not learning"},
-    "cs50x": {"status": "completed", "description": "Currently not learning"},
-    "cs50p": {"status": "completed", "description": "Currently not learning"},
-    "cs50w": {"status": "in-progress", "description": "Currently learning"},
-    "cs50sql": {"status": "in-progress", "description": "Currently learning"}
-  }
-}
+// Shortened About section
+const about = "I'm a passionate developer who loves building impactful products.";
+
+// Simplified project descriptions
+const projects = [
+    {
+        name: "Project A",
+        description: "A brief tool for efficiency."
+    },
+    {
+        name: "Project B",
+        description: "A web app for managing tasks."
+    },
+    // Add more projects as needed
+];
+
+export { about, projects };
