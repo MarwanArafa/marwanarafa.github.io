@@ -9,9 +9,12 @@ const portfolioData = {
     github: "https://github.com/MarwanArafa",
     linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
-  about: "A results-driven Developer specializing in backend efficiency and system automation. I don't just write code; I build tools that save time and secure servers. My daily workflow is entirely terminal-based, and I am deeply passionate about open-source software, networking, and cybersecurity.",
-  // NEW UI ADDITION: Skills Array
+  
+  // EXPANDED BIO: To perfectly balance the terminal UI height and highlight your true goals
+  about: "A results-driven Undergraduate Computer Science student and Developer specializing in backend efficiency, system automation, and secure networking. I don't just write code; I build tools that save time and harden servers. My daily workflow is entirely terminal-based, powered by a highly customized Arch Linux setup that I maintain myself.\n\nBeyond standard development, I have a deep passion for cybersecurity, specifically web penetration testing and reverse engineering. I am actively working through the PortSwigger Web Security Academy and transitioning my focus from high-level Python scripting down to low-level C and C++ memory management. Whether I'm configuring a secure proxy, hunting for vulnerabilities, or building a browser from scratch, my ultimate goal is to understand exactly how systems work under the hood.",
+  
   skills: ["C / C++", "Python", "Bash Scripting", "Linux Server Admin", "Arch Linux", "Networking (TCP/IP)", "Git", "Automation"],
+  
   courses: [
     {
       id: "linux101",
@@ -55,17 +58,30 @@ const portfolioData = {
       description: "A deep dive into Python automation and scripting. Explored object-oriented programming, unit testing, file I/O, regular expressions, and library usage for real-world problem solving.",
     },
     {
-      id: "cyber101",
-      title: "Cybersecurity & Networking Basics",
-      institution: "Self-Guided Roadmap",
+      id: "cs50w",
+      title: "CS50w: Web Programming",
+      institution: "Harvard University (edX)",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 mb-4 text-purple-400">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 mb-4 text-orange-400">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
       ),
-      description: "Focused study on network protocols (TCP/IP, UDP), cryptography foundations, and securing endpoints. Practical knowledge applied directly to building proxy servers and hardening Linux VPS environments.",
+      description: "[Currently Pursuing] Learning to build and deploy scalable, secure web applications using Django, JavaScript, React, and modern API design principles.",
     },
+    {
+      id: "cs50sql",
+      title: "CS50 SQL: Databases with SQL",
+      institution: "Harvard University (edX)",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 mb-4 text-emerald-400">
+          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+        </svg>
+      ),
+      description: "[Currently Pursuing] Deepening my knowledge of database architecture, query optimization, and data management using SQLite, PostgreSQL, and MySQL.",
+    }
   ],
   projects: [
     {
@@ -110,23 +126,15 @@ const portfolioData = {
     },
     {
       id: 6,
-      title: "Real-Time Server Log Analyzer",
-      description: "A Python automation script designed to parse and analyze Nginx/Apache log files in real-time. It detects suspicious IP behavior, flags potential brute-force attempts, and generates clean daily security reports.",
-      tags: ["Python", "RegEx", "Security", "Automation"],
-      link: "https://github.com/MarwanArafa", // Link to your repo when you push one!
-      inProgress: false
-    },
-    {
-      id: 7,
       title: "Encrypted SOCKS5 Proxy Server",
       description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).",
       tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
-      link: "https://github.com/MarwanArafa", 
+      link: "https://github.com/MarwanArafa",
       inProgress: true,
       expectedDate: "April 2026"
     },
     {
-      id: 8,
+      id: 7,
       title: "Custom Web Browser",
       description: "A lightweight, high-performance web browser built from scratch. Features include 'playable' tab groups and a lag-reducing minimal mode. Currently in the architecture and C++ mastery phase.",
       tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"],
