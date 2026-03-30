@@ -1,5 +1,6 @@
 // data.js
-window.portfolioData = {
+
+const portfolioData = {
   name: "Marwan Arafa",
   title: "Linux System Administrator & Software Developer",
   email: "marwanarafa206@gmail.com",
@@ -7,27 +8,14 @@ window.portfolioData = {
     github: "https://github.com/MarwanArafa",
     linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
-
   about: "A results-driven Undergraduate Computer Science student and Developer specializing in backend efficiency, system automation, and secure networking. I don't just write code; I build tools that save time and harden servers. My daily workflow is entirely terminal-based, powered by a highly customized Arch Linux setup that I maintain myself.\n\nBeyond standard development, I have a deep passion for cybersecurity, specifically web penetration testing and reverse engineering. I am actively working through the PortSwigger Web Security Academy and transitioning my focus from high-level Python scripting down to low-level C and C++ memory management. Whether I'm configuring a secure proxy, hunting for vulnerabilities, or building a browser from scratch, my ultimate goal is to understand exactly how systems work under the hood.",
-
-  skills: [
-    "C / C++",
-    "Python",
-    "Java",
-    "Bash Scripting",
-    "Linux Server Admin",
-    "Arch Linux",
-    "Networking (TCP/IP)",
-    "Git",
-    "Automation"
-  ],
-
   courses: [
     {
       id: "linux101",
       title: "Linux Fundamentals 101",
       institution: "Flex Courses",
       iconColor: "text-yellow-400",
+      iconType: "monitor",
       description: "Mastered core Linux concepts including file system hierarchy, permissions (chmod/chown), process management, and bash scripting. Gained proficiency in terminal-based navigation and system configuration.",
     },
     {
@@ -35,6 +23,7 @@ window.portfolioData = {
       title: "CS50x: Introduction to Computer Science",
       institution: "Harvard University (edX)",
       iconColor: "text-red-400",
+      iconType: "pen",
       description: "A comprehensive introduction to the intellectual enterprises of computer science. Covered C, Python, SQL, and Algorithms, with a focus on memory management and data structures.",
     },
     {
@@ -42,6 +31,7 @@ window.portfolioData = {
       title: "CS50p: Programming with Python",
       institution: "Harvard University (edX)",
       iconColor: "text-sky-400",
+      iconType: "code",
       description: "A deep dive into Python automation and scripting. Explored object-oriented programming, unit testing, file I/O, regular expressions, and library usage for real-world problem solving.",
     },
     {
@@ -49,6 +39,7 @@ window.portfolioData = {
       title: "CS50w: Web Programming",
       institution: "Harvard University (edX)",
       iconColor: "text-orange-400",
+      iconType: "brackets",
       description: "[Currently Pursuing] Learning to build and deploy scalable, secure web applications using Django, JavaScript, React, and modern API design principles.",
     },
     {
@@ -56,26 +47,26 @@ window.portfolioData = {
       title: "CS50 SQL: Databases with SQL",
       institution: "Harvard University (edX)",
       iconColor: "text-emerald-400",
+      iconType: "database",
       description: "[Currently Pursuing] Deepening my knowledge of database architecture, query optimization, and data management using SQLite, PostgreSQL, and MySQL.",
-    }
+    },
   ],
-
   projects: [
     {
       id: 1,
-      title: "E-Commerce Web Scraper",
-      description: "A data extraction tool built with BeautifulSoup and Requests. It scrapes product data (prices, ratings, stock) from e-commerce sites and exports clean, analyzed data to CSV format.",
-      tags: ["Python", "Web Scraping", "Data Mining"],
-      link: "https://github.com/MarwanArafa/python-web-scraper",
-      inProgress: false
+      title: "Advanced Connect 4 AI",
+      description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.",
+      tags: ["C++", "AI", "Minimax", "Game Dev"],
+      link: "https://github.com/MarwanArafa/Connect-4",
+      inProgress: false,
     },
     {
       id: 2,
-      title: "High-Volume Image Optimizer",
-      description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
-      tags: ["Python", "Automation", "Pillow", "CLI"],
-      link: "https://github.com/MarwanArafa/image_optimizer",
-      inProgress: false
+      title: "Universal Video Downloader",
+      description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.",
+      tags: ["Python", "Web Scraping", "Automation", "CLI"],
+      link: "https://github.com/MarwanArafa/universal-video-sniffer",
+      inProgress: false,
     },
     {
       id: 3,
@@ -83,23 +74,23 @@ window.portfolioData = {
       description: "A Bash script that automatically secures fresh Ubuntu/Debian servers. It updates the system, configures UFW firewalls to block unauthorized ports, and installs Fail2Ban to prevent brute-force attacks.",
       tags: ["Bash", "Linux", "Security", "UFW"],
       link: "https://github.com/MarwanArafa/linux-server-automation",
-      inProgress: false
+      inProgress: false,
     },
     {
       id: 4,
-      title: "Universal Video Downloader",
-      description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.",
-      tags: ["Python", "Web Scraping", "Automation", "CLI"],
-      link: "https://github.com/MarwanArafa/universal-video-sniffer",
-      inProgress: false
+      title: "High-Volume Image Optimizer",
+      description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
+      tags: ["Python", "Automation", "Pillow", "CLI"],
+      link: "https://github.com/MarwanArafa/image_optimizer",
+      inProgress: false,
     },
     {
       id: 5,
-      title: "Advanced Connect 4 AI",
-      description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.",
-      tags: ["C++", "AI", "Minimax", "Game Dev"],
-      link: "https://github.com/MarwanArafa/Connect-4",
-      inProgress: false
+      title: "E-Commerce Web Scraper",
+      description: "A data extraction tool built with BeautifulSoup and Requests. It scrapes product data (prices, ratings, stock) from e-commerce sites and exports clean, analyzed data to CSV format.",
+      tags: ["Python", "Web Scraping", "Data Mining"],
+      link: "https://github.com/MarwanArafa/python-web-scraper",
+      inProgress: false,
     },
     {
       id: 6,
@@ -108,7 +99,7 @@ window.portfolioData = {
       tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
       link: "https://github.com/MarwanArafa",
       inProgress: true,
-      expectedDate: "April 2026"
+      expectedDate: "April 2026",
     },
     {
       id: 7,
@@ -117,7 +108,7 @@ window.portfolioData = {
       tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"],
       link: "https://github.com/MarwanArafa",
       inProgress: true,
-      expectedDate: "Q4 2026"
-    }
+      expectedDate: "Q4 2026",
+    },
   ],
 };
