@@ -177,17 +177,30 @@ const Hero = () => {
 
 const About = () => (
     <Section id="about" title="About Me">
-        <div className="bg-gray-800/50 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)] border border-gray-700/50 max-w-4xl mx-auto">
-            <p className="text-lg text-gray-300 text-center leading-relaxed mb-8">
-                {portfolioData.about}
-            </p>
-            {/* NEW UI: Skills Container */}
-            <div className="flex flex-wrap justify-center gap-3 mt-6">
-                {portfolioData.skills && portfolioData.skills.map(skill => (
-                    <span key={skill} className="px-4 py-2 bg-gray-900/60 text-sky-400 rounded-lg border border-gray-700 font-medium text-sm hover:border-sky-500 hover:shadow-[0_0_10px_rgba(56,189,248,0.2)] hover:-translate-y-1 transition-all cursor-default">
-                        {skill}
-                    </span>
-                ))}
+        <div className="bg-gray-800/50 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.2)] border border-gray-700/50 max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-10 items-center">
+                
+                {/* Text Section (Left) */}
+                <div className="md:w-3/5">
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                        {portfolioData.about}
+                    </p>
+                </div>
+
+                {/* Skills Section (Right) */}
+                <div className="md:w-2/5 w-full bg-gray-900/80 p-6 rounded-xl border border-gray-700/50 shadow-inner">
+                    <h3 className="text-sky-400 font-mono text-sm uppercase tracking-widest mb-4 border-b border-gray-700/50 pb-2">
+                        ~/core-skills
+                    </h3>
+                    <div className="flex flex-wrap gap-2.5">
+                        {portfolioData.skills && portfolioData.skills.map(skill => (
+                            <span key={skill} className="text-gray-300 font-mono text-sm hover:text-white transition-colors cursor-default">
+                                <span className="text-sky-500 mr-1.5">{'>'}</span>{skill}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </div>
     </Section>
