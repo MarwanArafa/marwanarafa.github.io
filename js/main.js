@@ -187,17 +187,37 @@ const About = () => (
                     </p>
                 </div>
 
-                {/* Skills Section (Right) */}
-                <div className="md:w-2/5 w-full bg-gray-900/80 p-6 rounded-xl border border-gray-700/50 shadow-inner">
-                    <h3 className="text-sky-400 font-mono text-sm uppercase tracking-widest mb-4 border-b border-gray-700/50 pb-2">
-                        ~/core-skills
-                    </h3>
-                    <div className="flex flex-wrap gap-2.5">
-                        {portfolioData.skills && portfolioData.skills.map(skill => (
-                            <span key={skill} className="text-gray-300 font-mono text-sm hover:text-white transition-colors cursor-default">
-                                <span className="text-sky-500 mr-1.5">{'>'}</span>{skill}
-                            </span>
-                        ))}
+                {/* Terminal Skills Section (Right) */}
+                <div className="md:w-2/5 w-full bg-[#0d1117] p-6 rounded-lg border border-gray-700/80 shadow-inner font-mono relative overflow-hidden">
+                    
+                    {/* Fake Terminal Window Controls */}
+                    <div className="absolute top-0 left-0 w-full h-8 bg-gray-800 flex items-center px-4 border-b border-gray-700">
+                        <div className="flex gap-2">
+                            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        </div>
+                        <span className="ml-4 text-xs text-gray-400 font-sans tracking-widest">marwan@archlinux:~</span>
+                    </div>
+
+                    {/* Terminal Output */}
+                    <div className="mt-8">
+                        <div className="mb-4 text-gray-300 text-sm">
+                            <span className="text-purple-400 font-bold">➜</span> <span className="text-sky-400">~</span> cat core_skills.txt
+                        </div>
+                        
+                        <div className="flex flex-col gap-2 pl-2 border-l-2 border-gray-700/50 ml-1">
+                            {portfolioData.skills && portfolioData.skills.map(skill => (
+                                <span key={skill} className="text-gray-400 text-sm hover:text-white transition-colors cursor-default">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                        
+                        {/* Blinking Cursor */}
+                        <div className="mt-4 text-sm">
+                            <span className="text-purple-400 font-bold">➜</span> <span className="text-sky-400">~</span> <span className="inline-block w-2 h-4 bg-gray-400 animate-pulse align-middle ml-1"></span>
+                        </div>
                     </div>
                 </div>
 
