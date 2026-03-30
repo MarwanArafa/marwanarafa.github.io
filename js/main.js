@@ -1,38 +1,68 @@
 // main.js
-import { about, projects } from './data.js';
+const { useState, useEffect } = React;
+const data = window.portfolioData;
 
-// 1. Render the About Section
-const aboutSection = document.getElementById('about-section');
-if (aboutSection) {
-    aboutSection.innerHTML = `<p>${about}</p>`;
+function Portfolio() {
+    return (
+        <div className="portfolio-container">
+            <AboutSection />
+            <ProjectsSection />
+        </div>
+    );
 }
 
-// 2. Render the Projects Dynamically
-const projectsContainer = document.getElementById('projects-container');
-
-if (projectsContainer) {
-    // Clear out any remaining placeholder content
-    projectsContainer.innerHTML = ''; 
-
-    projects.forEach(project => {
-        // Create the card container
-        const card = document.createElement('div');
-        card.className = 'project-card';
-        
-        // Map the tech stack array into individual span tags
-        const techTags = project.techStack
-            .map(tech => `<span class="tech-tag">${tech}</span>`)
-            .join('');
-
-        // Construct the card's HTML
-        card.innerHTML = `
-            <h3 class="project-title">${project.name}</h3>
-            <p class="project-description">${project.description}</p>
-            <div class="tech-stack">
-                ${techTags}
+function AboutSection() {
+    return (
+        <section id="about-section" className="two-column-layout">
+            <div className="bio-content">
+                <h2>{data.title}</h2>
+                <p>{data.bio}</p>
+                <h3>Courses</h3>
+                <ul className="course-list">
+                    {data.courses.map(course => <li key={course}>{course}</li>)}
+                </ul>
             </div>
-        `;
-        
-        projectsContainer.appendChild(card);
-    });
+            
+            <div className="hacker-terminal">
+                <div className="terminal-header">
+                    <span className="dot red"></span>
+                    <span className="dot yellow"></span>
+                    <span className="dot green"></span>
+                    marwan@archlinux:~
+                </div>
+                <div className="terminal-body">
+                    <p className="command"><span className="prompt">~ $</span> neofetch --skills</p>
+                    <div className="skills-grid">
+                        {data.skills.map(skill => <span key={skill} className="skill-badge">{skill}</span>)}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }
+
+function ProjectsSection() {
+    return (
+        <section id="projects-container">
+            <h2>Projects</h2>
+            <div className="projects-grid">
+                {data.projects.map((project, index) => (
+                    <div key={index} className="project-card">
+                        <div className="project-header">
+                            <h3>{project.name}</h3>
+                            {project.status === "Building" && <span className="status-badge building">Building</span>}
+                        </div>
+                        <p className="project-description">{project.description}</p>
+                        <div className="tech-stack">
+                            {project.techStack.map(tech => <span key={tech} className="tech-tag">{tech}</span>)}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+// Render the app to the screen
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Portfolio />);
