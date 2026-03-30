@@ -54,6 +54,18 @@ const portfolioData = {
       ),
       description: "A deep dive into Python automation and scripting. Explored object-oriented programming, unit testing, file I/O, regular expressions, and library usage for real-world problem solving.",
     },
+    {
+      id: "cyber101",
+      title: "Cybersecurity & Networking Basics",
+      institution: "Self-Guided Roadmap",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 mb-4 text-purple-400">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      ),
+      description: "Focused study on network protocols (TCP/IP, UDP), cryptography foundations, and securing endpoints. Practical knowledge applied directly to building proxy servers and hardening Linux VPS environments.",
+    },
   ],
   projects: [
     {
@@ -98,15 +110,23 @@ const portfolioData = {
     },
     {
       id: 6,
+      title: "Real-Time Server Log Analyzer",
+      description: "A Python automation script designed to parse and analyze Nginx/Apache log files in real-time. It detects suspicious IP behavior, flags potential brute-force attempts, and generates clean daily security reports.",
+      tags: ["Python", "RegEx", "Security", "Automation"],
+      link: "https://github.com/MarwanArafa", // Link to your repo when you push one!
+      inProgress: false
+    },
+    {
+      id: 7,
       title: "Encrypted SOCKS5 Proxy Server",
       description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).",
       tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
-      link: "https://github.com/MarwanArafa", // Replace with actual repo link when ready
+      link: "https://github.com/MarwanArafa", 
       inProgress: true,
       expectedDate: "April 2026"
     },
     {
-      id: 7,
+      id: 8,
       title: "Custom Web Browser",
       description: "A lightweight, high-performance web browser built from scratch. Features include 'playable' tab groups and a lag-reducing minimal mode. Currently in the architecture and C++ mastery phase.",
       tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"],
