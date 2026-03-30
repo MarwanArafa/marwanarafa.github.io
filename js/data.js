@@ -3,17 +3,18 @@
 
 const portfolioData = {
   name: "Marwan Arafa",
-  title: "Linux System Administrator & Python Developer",
+  // Updated Title!
+  title: "Linux System Administrator & Software Developer",
   email: "marwanarafa206@gmail.com",
   socials: {
     github: "https://github.com/MarwanArafa",
     linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
   },
   
-  // EXPANDED BIO: To perfectly balance the terminal UI height and highlight your true goals
   about: "A results-driven Undergraduate Computer Science student and Developer specializing in backend efficiency, system automation, and secure networking. I don't just write code; I build tools that save time and harden servers. My daily workflow is entirely terminal-based, powered by a highly customized Arch Linux setup that I maintain myself.\n\nBeyond standard development, I have a deep passion for cybersecurity, specifically web penetration testing and reverse engineering. I am actively working through the PortSwigger Web Security Academy and transitioning my focus from high-level Python scripting down to low-level C and C++ memory management. Whether I'm configuring a secure proxy, hunting for vulnerabilities, or building a browser from scratch, my ultimate goal is to understand exactly how systems work under the hood.",
   
-  skills: ["C / C++", "Python", "Bash Scripting", "Linux Server Admin", "Arch Linux", "Networking (TCP/IP)", "Git", "Automation"],
+  // Added Java to your skills list!
+  skills: ["C / C++", "Python", "Java", "Bash Scripting", "Linux Server Admin", "Arch Linux", "Networking (TCP/IP)", "Git", "Automation"],
   
   courses: [
     {
@@ -97,50 +98,4 @@ const portfolioData = {
       title: "High-Volume Image Optimizer",
       description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
       tags: ["Python", "Automation", "Pillow", "CLI"],
-      link: "https://github.com/MarwanArafa/image_optimizer",
-      inProgress: false
-    },
-    {
-      id: 3,
-      title: "Automated Linux VPS Hardener",
-      description: "A Bash script that automatically secures fresh Ubuntu/Debian servers. It updates the system, configures UFW firewalls to block unauthorized ports, and installs Fail2Ban to prevent brute-force attacks.",
-      tags: ["Bash", "Linux", "Security", "UFW"],
-      link: "https://github.com/MarwanArafa/linux-server-automation",
-      inProgress: false
-    },
-    {
-      id: 4,
-      title: "Universal Video Downloader",
-      description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.",
-      tags: ["Python", "Web Scraping", "Automation", "CLI"],
-      link: "https://github.com/MarwanArafa/universal-video-sniffer",
-      inProgress: false
-    },
-    {
-      id: 5,
-      title: "Advanced Connect 4 AI",
-      description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.",
-      tags: ["C++", "AI", "Minimax", "Game Dev"],
-      link: "https://github.com/MarwanArafa/Connect-4",
-      inProgress: false
-    },
-    {
-      id: 6,
-      title: "Encrypted SOCKS5 Proxy Server",
-      description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).",
-      tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
-      link: "https://github.com/MarwanArafa",
-      inProgress: true,
-      expectedDate: "April 2026"
-    },
-    {
-      id: 7,
-      title: "Custom Web Browser",
-      description: "A lightweight, high-performance web browser built from scratch. Features include 'playable' tab groups and a lag-reducing minimal mode. Currently in the architecture and C++ mastery phase.",
-      tags: ["C++", "Qt Framework", "QtWebEngine", "UI/UX"],
-      link: "https://github.com/MarwanArafa", 
-      inProgress: true,
-      expectedDate: "Q4 2026"
-    }
-  ],
-};
+      link: "
