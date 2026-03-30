@@ -219,16 +219,45 @@ const About = () => (
 const Courses = () => (
     <Section id="courses" title="Certifications & Education">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {portfolioData.courses.map(course => (
-                <div key={course.id} className="bg-gray-800/50 backdrop-blur-md rounded-xl p-8 border border-gray-700/50 hover:border-sky-500/50 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-sky-500/10 flex flex-col h-full">
-                    <div className="flex justify-center md:justify-start">
-                        <CourseIcon type={course.iconType} colorClass={course.iconColor} />
+            {portfolioData.courses.map(course => {
+                const isPursuing = course.description.startsWith("[Currently Pursuing]");
+                const cleanDescription = isPursuing
+                    ? course.description.replace("[Currently Pursuing] ", "")
+                    : course.description;
+
+                return (
+                    <div
+                        key={course.id}
+                        className={`relative backdrop-blur-md rounded-xl p-8 border transition-all duration-300 transform hover:-translate-y-2 shadow-lg flex flex-col h-full
+                            ${isPursuing
+                                ? "bg-sky-950/40 border-sky-500/40 hover:border-sky-400 hover:shadow-sky-500/20"
+                                : "bg-gray-800/50 border-gray-700/50 hover:border-sky-500/50 hover:shadow-sky-500/10"
+                            }`}
+                    >
+                        {isPursuing && (
+                            <span className="absolute top-4 right-4 text-xs font-bold bg-sky-500/20 border border-sky-400/40 text-sky-300 px-2 py-1 rounded-full tracking-wide">
+                                In Progress
+                            </span>
+                        )}
+                        <div className="flex justify-center md:justify-start">
+                            <CourseIcon type={course.iconType} colorClass={course.iconColor} />
+                        </div>
+                        <h3 className="text-xl font-bold mb-2 mt-2 text-white">{course.title}</h3>
+                        <p className={`font-semibold mb-4 text-sm uppercase tracking-wide ${isPursuing ? "text-sky-300" : "text-sky-400"}`}>
+                            {course.institution}
+                        </p>
+                        <p className="text-gray-400 text-sm leading-relaxed flex-grow">{cleanDescription}</p>
+                        {isPursuing && (
+                            <div className="mt-4 pt-4 border-t border-sky-500/20">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></div>
+                                    <span className="text-sky-400 text-xs font-semibold">Currently pursuing this course</span>
+                                </div>
+                            </div>
+                        )}
                     </div>
-                    <h3 className="text-xl font-bold mb-2 mt-2 text-white">{course.title}</h3>
-                    <p className="text-sky-400 font-semibold mb-4 text-sm uppercase tracking-wide">{course.institution}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed flex-grow">{course.description}</p>
-                </div>
-            ))}
+                );
+            })}
         </div>
     </Section>
 );
