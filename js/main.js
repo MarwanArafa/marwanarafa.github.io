@@ -1,15 +1,17 @@
-// Sample structure of the Courses component
-const Courses = ({ courses }) => {
-    return (
-        <div>
-            {courses.map(c => (
-                <div key={c.id} className="course">
-                    <h3>{c.title}</h3>
-                    {c.status === 'in-progress' && (
-                        <span className="badge" style={{ border: '2px solid yellow', borderRadius: '12px', padding: '5px', color: 'yellow', backgroundColor: 'transparent' }}>Learning Now</span>
-                    )}
-                </div>
-            ))}
-        </div>
-    );
+// Update project card hover color
+const projectCard = document.querySelector('.project-card');
+projectCard.style.transition = 'background-color 0.3s';
+projectCard.onmouseover = function() {
+    this.style.backgroundColor = 'yellow'; // Change to yellow or bright blue
 };
+projectCard.onmouseout = function() {
+    this.style.backgroundColor = ''; // Reset to original
+};
+
+// Make project descriptions bold
+const projectDescriptions = document.querySelectorAll('.project-description');
+projectDescriptions.forEach(function(description) {
+    description.style.fontWeight = 'bold';
+});
+
+// Additional code for the Projects component can be added here.
