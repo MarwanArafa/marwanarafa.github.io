@@ -1,12 +1,12 @@
 /*
- * DATA INITIALIZATION
- * Extracting data from the global window object. 
+ * CORE LOGIC INITIALIZATION
+ * Bridges the global data from data.js into the React component tree.
  */
 const data = window.portfolioData;
 
 /*
- * ICON LIBRARY (Lucide-inspired SVGs)
- * Stateless functional components for rendering vector icons.
+ * ICON COMPONENTS
+ * Reusable vector graphics for social media and UI elements.
  */
 const GithubIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -40,8 +40,8 @@ const CalendarIcon = ({ className }) => (
 );
 
 /*
- * INTERACTIVE BACKGROUND
- * Canvas-based particle system with dynamic distance-based connections.
+ * BACKGROUND ANIMATION
+ * A high-performance canvas particle system with dynamic node-linking.
  */
 const ParticleBackground = () => {
     const canvasRef = React.useRef(null);
@@ -107,8 +107,8 @@ const ParticleBackground = () => {
 };
 
 /*
- * REUSABLE WRAPPERS
- * Standard layout for major page segments.
+ * LAYOUT COMPONENTS
+ * Section wrapper for consistent spacing and styling.
  */
 const Section = ({ id, title, children }) => (
     <section id={id} className="py-20 relative z-10 container mx-auto px-6">
@@ -118,8 +118,8 @@ const Section = ({ id, title, children }) => (
 );
 
 /*
- * NAVIGATION BAR
- * Responsive header with backdrop blur effect.
+ * HEADER COMPONENT
+ * Fixed navigation bar with glassmorphism styling.
  */
 const Header = () => (
     <header className="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800/50 px-6 py-4 flex justify-between items-center text-white">
@@ -135,7 +135,7 @@ const Header = () => (
 
 /*
  * HERO SECTION
- * High-impact introduction with social links.
+ * Primary landing area featuring name and software developer title.
  */
 const Hero = () => (
     <section className="min-h-screen flex items-center justify-center relative z-10 pt-20">
@@ -152,8 +152,8 @@ const Hero = () => (
 );
 
 /*
- * ABOUT & TERMINAL COMPONENT
- * Features a split layout with biography and a mock Arch Linux terminal output.
+ * ABOUT & TERMINAL SECTION
+ * Visualizes the software developer persona with a mock terminal UI.
  */
 const About = () => (
     <Section id="about" title="About Me">
@@ -181,8 +181,8 @@ const About = () => (
 );
 
 /*
- * EDUCATION & CERTIFICATIONS
- * Map over data.courses to render individual certification cards.
+ * EDUCATION SECTION
+ * Highlights academic achievements and certifications.
  */
 const Courses = () => (
     <Section id="courses" title="Education">
@@ -200,8 +200,8 @@ const Courses = () => (
 );
 
 /*
- * PROJECT SHOWCASE
- * Features project status badges and automatic reverse-chronological sorting.
+ * PROJECTS SECTION
+ * Displays a gallery of technical work with real-time build status badges.
  */
 const Projects = () => (
     <Section id="projects" title="Projects">
@@ -211,7 +211,7 @@ const Projects = () => (
                     {p.inProgress && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-transparent animate-pulse"></div>}
                     <div className="flex justify-between items-start mb-4">
                         <h3 className="font-bold text-xl text-white group-hover:text-sky-400 transition-colors">{p.title}</h3>
-                        {p.inProgress && <span className="text-[9px] font-black bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded border border-yellow-500/20 uppercase">Building</span>}
+                        {p.inProgress && <span className="text-[9px] font-black bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded border border-yellow-500/20 uppercase tracking-tighter">Building</span>}
                     </div>
                     {p.inProgress && p.expectedDate && (
                         <div className="flex items-center gap-1.5 text-[10px] text-yellow-500/60 mb-4 font-mono uppercase tracking-widest">
@@ -230,7 +230,7 @@ const Projects = () => (
 
 /*
  * ROOT APPLICATION
- * Orchestrates component assembly and DOM rendering.
+ * Final assembly and rendering component.
  */
 const App = () => (
     <div className="min-h-screen flex flex-col text-white font-sans selection:bg-sky-500/30">
@@ -247,6 +247,6 @@ const App = () => (
 );
 
 /*
- * MOUNT APP TO DOM
+ * DOM MOUNTING
  */
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
