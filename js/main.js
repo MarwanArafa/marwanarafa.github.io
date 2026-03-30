@@ -1,17 +1,38 @@
-// Update project card hover color
-const projectCard = document.querySelector('.project-card');
-projectCard.style.transition = 'background-color 0.3s';
-projectCard.onmouseover = function() {
-    this.style.backgroundColor = 'yellow'; // Change to yellow or bright blue
-};
-projectCard.onmouseout = function() {
-    this.style.backgroundColor = ''; // Reset to original
-};
+// main.js
+import { about, projects } from './data.js';
 
-// Make project descriptions bold
-const projectDescriptions = document.querySelectorAll('.project-description');
-projectDescriptions.forEach(function(description) {
-    description.style.fontWeight = 'bold';
-});
+// 1. Render the About Section
+const aboutSection = document.getElementById('about-section');
+if (aboutSection) {
+    aboutSection.innerHTML = `<p>${about}</p>`;
+}
 
-// Additional code for the Projects component can be added here.
+// 2. Render the Projects Dynamically
+const projectsContainer = document.getElementById('projects-container');
+
+if (projectsContainer) {
+    // Clear out any remaining placeholder content
+    projectsContainer.innerHTML = ''; 
+
+    projects.forEach(project => {
+        // Create the card container
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        
+        // Map the tech stack array into individual span tags
+        const techTags = project.techStack
+            .map(tech => `<span class="tech-tag">${tech}</span>`)
+            .join('');
+
+        // Construct the card's HTML
+        card.innerHTML = `
+            <h3 class="project-title">${project.name}</h3>
+            <p class="project-description">${project.description}</p>
+            <div class="tech-stack">
+                ${techTags}
+            </div>
+        `;
+        
+        projectsContainer.appendChild(card);
+    });
+}
