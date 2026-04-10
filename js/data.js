@@ -54,7 +54,7 @@ const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "E-Commerce Web Scraper",
+      title: "Python Web Scraper",
       description: "A data extraction tool built with BeautifulSoup and Requests. It scrapes product data (prices, ratings, stock) from e-commerce sites and exports clean, analyzed data to CSV format.",
       tags: ["Python", "Web Scraping", "Data Mining"],
       link: "https://github.com/MarwanArafa/python-web-scraper",
@@ -62,7 +62,7 @@ const portfolioData = {
     },
     {
       id: 2,
-      title: "High-Volume Image Optimizer",
+      title: "Image Optimizer",
       description: "A Python CLI tool designed for bulk image processing. It resizes, converts, and compresses thousands of images in seconds using the Pillow library, optimized for web performance.",
       tags: ["Python", "Automation", "Pillow", "CLI"],
       link: "https://github.com/MarwanArafa/image_optimizer",
@@ -70,7 +70,7 @@ const portfolioData = {
     },
     {
       id: 3,
-      title: "Automated Linux VPS Hardener",
+      title: "Linux Server Automation",
       description: "A Bash script that automatically secures fresh Ubuntu/Debian servers. It updates the system, configures UFW firewalls to block unauthorized ports, and installs Fail2Ban to prevent brute-force attacks.",
       tags: ["Bash", "Linux", "Security", "UFW"],
       link: "https://github.com/MarwanArafa/linux-server-automation",
@@ -78,15 +78,15 @@ const portfolioData = {
     },
     {
       id: 4,
-      title: "Universal Video Downloader",
-      description: "A powerful automation tool designed to scrape and download media from the web. It uses a custom Python web scraper to locate media streams and extract video files from various sources automatically.",
+      title: "Universal Video Sniffer",
+      description: "A Python-based tool that uses network traffic analysis to locate and extract media streams from various sources automatically.",
       tags: ["Python", "Web Scraping", "Automation", "CLI"],
       link: "https://github.com/MarwanArafa/universal-video-sniffer",
       inProgress: false,
     },
     {
       id: 5,
-      title: "Advanced Connect 4 AI",
+      title: "Connect-4 AI Engine",
       description: "A high-performance AI engine built from scratch in C++. It utilizes the Minimax algorithm with Alpha-Beta Pruning to simulate 9 moves into the future. Features a custom heuristic engine that evaluates gravity physics, unstoppable threats, and strategic gap setups.",
       tags: ["C++", "AI", "Minimax", "Game Dev"],
       link: "https://github.com/MarwanArafa/Connect-4",
@@ -94,7 +94,7 @@ const portfolioData = {
     },
     {
       id: 6,
-      title: "Encrypted SOCKS5 Proxy Server",
+      title: "SOCKS5 Proxy Server",
       description: "Building a custom encrypted SOCKS5 proxy server from scratch to bypass ISP visibility. Currently working through core socket programming concepts, including echo servers, forwarders, and protocol implementation (RFC 1928).",
       tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
       link: "https://github.com/MarwanArafa",
