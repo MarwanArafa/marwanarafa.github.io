@@ -6,7 +6,7 @@ const portfolioData = {
   email: "marwanarafa206@gmail.com",
   socials: {
     github: "https://github.com/MarwanArafa",
-    linkedin: "https://www.linkedin.com/in/marwan-arafa-92803a29b/",
+    linkedin: "https://www.linkedin.com/in/marwanarafa/",
   },
   about: "A 19-year-old, results-driven Undergraduate Computer Science student and Developer specializing in backend efficiency, system automation, and secure networking. I don't just write code; I build tools that save time and harden servers. My daily workflow is entirely terminal-based, powered by a highly customized Arch Linux setup that I maintain myself.\n\nBeyond standard development, I have a deep passion for cybersecurity, specifically web penetration testing and reverse engineering. I am actively working through the PortSwigger Web Security Academy and transitioning my focus from high-level Python scripting down to low-level C and C++ memory management. Whether I'm configuring a secure proxy, hunting for vulnerabilities, or building a browser from scratch, my ultimate goal is to understand exactly how systems work under the hood.",
   courses: [
