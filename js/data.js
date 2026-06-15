@@ -110,5 +110,13 @@ const portfolioData = {
       inProgress: true,
       expectedDate: "Q4 2026",
     },
+    {
+  id: 8,
+  title: "FolderZen",
+  description: "A robust, cross-platform file organization CLI that automatically categorizes messy folders by file type and chronological creation date. Features a dry-run mode, collision-free renaming, and sleek progress visuals.",
+  tags: ["Python", "CLI", "Automation", "File Management"],
+  link: "https://github.com/MarwanArafa/FolderZen",
+  inProgress: false,
+  }
   ],
 };
