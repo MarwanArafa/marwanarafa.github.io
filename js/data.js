@@ -117,6 +117,6 @@ const portfolioData = {
   tags: ["Python", "CLI", "Automation", "File Management"],
   link: "https://github.com/MarwanArafa/FolderZen",
   inProgress: false,
-  }
+  },
   ],
 };
