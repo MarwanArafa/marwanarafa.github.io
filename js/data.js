@@ -99,7 +99,7 @@ const portfolioData = {
       tags: ["C", "Socket Programming", "Networking", "SOCKS5"],
       link: "https://github.com/MarwanArafa",
       inProgress: true,
-      expectedDate: "April 2026",
+      expectedDate: "August 2026", // Note: Updated from April 2026 since that date has passed. Change as needed!
     },
     {
       id: 7,
@@ -111,12 +111,14 @@ const portfolioData = {
       expectedDate: "Q4 2026",
     },
     {
-  id: 8,
-  title: "FolderZen",
-  description: "A robust, cross-platform file organization CLI that automatically categorizes messy folders by file type and chronological creation date. Features a dry-run mode, collision-free renaming, and sleek progress visuals.",
-  tags: ["Python", "CLI", "Automation", "File Management"],
-  link: "https://github.com/MarwanArafa/FolderZen",
-  inProgress: false,
-  },
+      id: 8,
+      title: "FolderZen",
+      description: "A robust, cross-platform file organization CLI that automatically categorizes messy folders by file type and chronological creation date. Features a dry-run mode, collision-free renaming, and sleek progress visuals.",
+      tags: ["Python", "CLI", "Automation", "File Management"],
+      link: "https://github.com/MarwanArafa/FolderZen",
+      inProgress: false,
+    },
   ],
 };
+
+export default portfolioData;
