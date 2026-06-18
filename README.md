@@ -1,7 +1,7 @@
 # 👨‍💻 Marwan Arafa | Personal Portfolio
 
 The source code for my personal developer portfolio website. hosted on GitHub Pages.
-**Live Site:** [https://marwanarafa.github.io](https://marwanarafa.github.io)
+**Live Site:** [https://marwan-dev.me](https://marwanarafa.github.io)
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
 
